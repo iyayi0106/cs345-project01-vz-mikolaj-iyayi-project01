@@ -21,12 +21,15 @@ Three Use Cases that you will implement first:
 
 Which classes & methods do you need to implement for these use cases?
 (Indicated which team member is responsible for the implemenation)
-1. - Abstract Account
-2. - Checking Account
-3. - Savings Account
-4. constructor
-5. withdraw
-6. deposit
+1. - Abstract Account - MK
+2. - Checking Account - MK
+3. - Savings Account -MK
+4. constructor - VZ
+5. withdraw - VZ
+6. deposit - VZ
+7. Abstract Teller -Iyayi
+8. ATM -Iyayi
+9. Bank Teller -Iyayi
 
 Don't forget to use Test-Driven Development (TDD)
 1. Write Class and Method Function Headers
