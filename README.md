@@ -3,7 +3,10 @@
 ## Project 01 - Bank Software
 
 Names:
-<< add 3-4 names here >>
+Mikolaj
+Iyayi
+VZ
+
 
 Link to UML Use Case Diagram:
 << add linkk here >>
@@ -12,7 +15,7 @@ Link to UML Class Diagram:
 << add link here >>
 
 Three Use Cases that you will implement first:
-1. -
+1. - 
 2. - 
 3. - 
 
