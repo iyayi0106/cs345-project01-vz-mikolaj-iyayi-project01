@@ -15,17 +15,18 @@ Link to UML Class Diagram:
 << add link here >>
 
 Three Use Cases that you will implement first:
-1. - 
-2. - 
-3. - 
+1. - Create Account
+2. - Withdraw
+3. - Deposit
 
 Which classes & methods do you need to implement for these use cases?
 (Indicated which team member is responsible for the implemenation)
-1. -
-2. -
-3. -
-4. -
-5. << add more as needed >>
+1. - Abstract Account
+2. - Checking Account
+3. - Savings Account
+4. constructor
+5. withdraw
+6. deposit
 
 Don't forget to use Test-Driven Development (TDD)
 1. Write Class and Method Function Headers
