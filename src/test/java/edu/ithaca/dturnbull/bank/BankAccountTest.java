@@ -19,6 +19,8 @@ class BankAccountTest {
         assertEquals("cc@boi.ie", bankAccount2.getEmail());
         
 
+        assertEquals(200, bankAccount.getBalance(), 0.001);
+
     }
 
     @Test
@@ -28,6 +30,7 @@ class BankAccountTest {
 
         assertEquals(100, bankAccount.getBalance(), 0.001);
         assertThrows(InsufficientFundsException.class, () -> bankAccount.withdraw(300));
+
         assertThrows(InsufficientFundsException.class, () -> bankAccount.withdraw(101));
 
         bankAccount.withdraw(99);
@@ -50,6 +53,37 @@ class BankAccountTest {
         assertEquals(199.89, bankAccount2.getBalance(),0.001);
         bankAccount2.withdraw(50);
         assertEquals(149.89, bankAccount2.getBalance(),0.001);
+
+       
+        BankAccount bankAccount2 = new BankAccount("a@b.com", 200);
+        assertThrows(IllegalArgumentException.class, () -> bankAccount2.withdraw(-300));
+
+        BankAccount bankAccount3 = new BankAccount("a@b.com", 3000);
+        assertThrows(IllegalArgumentException.class, () -> bankAccount3.withdraw(-300.376)); //false case
+        assertThrows(IllegalArgumentException.class, () -> bankAccount3.withdraw(300.376)); //false case
+    }
+    @Test
+    void depositTest() throws IllegalArgumentException{ // or insuffieient funds exception ?
+         BankAccount bankAccount = new BankAccount("a@b.com", 350);
+         bankAccount.deposit(100);
+         assertEquals(450, bankAccount.getBalance(), 0.001);
+         assertThrows(IllegalArgumentException.class, () -> bankAccount.deposit(-300));
+
+         BankAccount bankAccount2 = new BankAccount("a@b.com", 350);
+         //assertThrows(IllegalArgumentException.class, () -> bankAccount2.deposit(60.970));
+         assertThrows(IllegalArgumentException.class, ()-> bankAccount2.deposit(60.975));
+    }
+
+    @Test
+    void isAmountValidTest(){
+        // Testing for decimal places and positive numbers
+        assertTrue(BankAccount.isAmountValid(300.00));
+        assertTrue(BankAccount.isAmountValid(30.50));
+        assertFalse(BankAccount.isAmountValid(70.345));
+        assertFalse(BankAccount.isAmountValid(-70.00));
+        assertTrue(BankAccount.isAmountValid(70));
+
+
     }
 
     
@@ -140,6 +174,7 @@ class BankAccountTest {
         //check for exception thrown correctly
         assertThrows(IllegalArgumentException.class, ()-> new BankAccount("", 100));
 
+
         //input parameters for starting balance must be non negative
         bankAccount = new BankAccount("a@b.com", 10);
         assertEquals(10 , bankAccount.getBalance(), 0.001);
@@ -153,6 +188,15 @@ class BankAccountTest {
         assertEquals(0.01, bankAccount.getBalance(), 0.001);
         assertThrows(IllegalArgumentException.class, ()-> new BankAccount("a@b.com", 0.001));
         assertThrows(IllegalArgumentException.class, ()-> new BankAccount("a@b.com", 0.1232213));
+
+        BankAccount bankAccount2 = new BankAccount("a@b.com", 3000);
+        assertThrows(IllegalArgumentException.class, () -> new BankAccount("",-300.376)); 
+        assertThrows(IllegalArgumentException.class, () -> new BankAccount("",300.376)); 
+
+        assertThrows(IllegalArgumentException.class, () -> new BankAccount("2@",67.37)); //false case
+        assertThrows(IllegalArgumentException.class, () -> new BankAccount("abc@gmail.com",-900)); //false case
+
+>>>>>>> 085273f48b2f5bd76556bde1d88478789bcd718b
     }
 
     @Test
